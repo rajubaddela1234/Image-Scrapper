@@ -5,7 +5,9 @@ from bs4 import BeautifulSoup as bs
 from urllib.request import urlopen as uReq
 import logging
 logging.basicConfig(filename="scrapper.log",level=logging.INFO,format='%(asctime)s-%(levelname)s-%(message)s')
-app = Flask(__name__)
+
+application= Flask(__name__)
+app=application
 
 @app.route('/',methods=['GET'])  # route to display the home page
 @cross_origin()
@@ -84,5 +86,5 @@ def index():
         return render_template('index.html')
 
 if __name__ == "__main__":
-    #app.run(host='127.0.0.1', port=8001, debug=True)
-	app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080, debug=True)
+	#3app.run(debug=True)
